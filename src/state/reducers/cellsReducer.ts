@@ -12,6 +12,10 @@ const intialState: any = {
 const reducers = (state: any = intialState, action: any) => {
 
     switch(action.type) {
+         case ActionType.UPDATE_CELL: 
+            const { id, content } = action.payload;
+            state.data[id].content = content;
+            return state;
          case ActionType.INSERT_CELL_AFTER:   
             const cell: Cell = {
                 content: "",
