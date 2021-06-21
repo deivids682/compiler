@@ -1,11 +1,10 @@
 import { Cell } from "../state/cell";
-import CodeEditor from "./Code-editor";
+import CodeCell from "./CodeCell";
 
 
 interface CellListItemProps {
     cell: Cell
 }
-
 
 const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
 
@@ -14,7 +13,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
     if(cell.type === "code") {
         child = (
             <>
-                <CodeEditor initialValue={"123"} onChange={() => {}} />
+                <CodeCell cell={cell} />
             </>
         );
     } else {
@@ -24,7 +23,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
         )
     }
 
-    return <div></div>
+    return <div className="cell-list-item">{child}</div>
 }
 
 

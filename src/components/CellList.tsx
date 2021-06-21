@@ -12,12 +12,12 @@ const CellList: React.FC = () => {
         order.map((id: string) => data[id])
     );
 
-    const renderCells = cells.map((cell: Cell) => (
-        <Fragment key={cell.id}>
+    const renderCells = cells.map((cell: Cell) => {
+       return <Fragment key={cell.id}>
             <CellListItem cell={cell} /> 
             <AddCell previousCellId={cell.id} />
         </Fragment>
-    ));
+    });
 
     return (
     <div className="cell-list">

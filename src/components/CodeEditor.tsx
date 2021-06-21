@@ -1,4 +1,3 @@
-
 import MonacoEditor, { EditorDidMount } from "@monaco-editor/react";
 import { useRef } from "react";
 import codeshift from "jscodeshift";
@@ -28,10 +27,16 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
             monacoEditor
         );
 
-        //highlighter.
+      /*  highlighter.highLigthOnDidChangeModelContent(
+            () => {},
+            () => {},
+            undefined,
+            () => {}
+        );*/
     }
 
-    return (<div>
+    return (
+    <div className="editor-wrapper">
         <MonacoEditor 
             editorDidMount={onEditorDidMount}
             value={initialValue}
@@ -40,10 +45,15 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
             height="100%"
             options={{
                 wordWrap: "on",
-                fontSize: 16
+                fontSize: 16,
+                minimap: { enabled: false },
+                showUnused: false,
+                folding: false,
+                automaticLayout: true
             }}
         />
-    </div>);
+    </div>
+    );
 }
 
 export default CodeEditor;
