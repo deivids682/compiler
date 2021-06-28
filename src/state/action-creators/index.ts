@@ -1,8 +1,24 @@
 import {  Dispatch } from "redux"
 import { ActionType } from "../action-types"
-import { UpdateCellAction, Action } from "../actions"
+import { 
+    UpdateCellAction, 
+    Action, 
+    Direction, 
+    MoveCellAction 
+} from "../actions"
 import bundle from '../../bundler';
 
+
+
+export const moveCell = (id: string, direction: Direction) : MoveCellAction => {
+    return {
+        type: ActionType.MOVE_CELL,
+        payload: {
+            id,
+            direction
+        }
+    }
+}
 
 export const insertCellAfter = (
     id: string | null,
