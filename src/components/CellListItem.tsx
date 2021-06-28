@@ -1,4 +1,5 @@
 import { Cell } from "../state/cell";
+import ActionBar from "./ActionBar";
 import CodeCell from "./CodeCell";
 
 
@@ -12,7 +13,8 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
 
     if(cell.type === "code") {
         child = (
-            <>
+            <>  
+                <ActionBar id={cell.id} /> 
                 <CodeCell cell={cell} />
             </>
         );

@@ -28,7 +28,7 @@ export const updateCell = (id: string, content: string) : UpdateCellAction => {
 }
 
 
-export const createBudle = (cellId: string, input: string) => {
+export const createBundle = (cellId: string, input: string) => {
     return async (dispatch: Dispatch<Action>) => {
         dispatch({
             type: ActionType.BUNDLE_START,

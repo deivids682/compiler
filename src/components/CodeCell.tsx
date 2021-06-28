@@ -14,25 +14,25 @@ interface CodeCellProps {
 
 
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
-    const { updateCell, createBudle } = useActions();
-    const bundle = useTypedSelector((state) => state.bundles[cell.id])
+    const { updateCell, createBundle } = useActions();
+    const bundle = useTypedSelector((state) => state.bundles[cell.id]);
     const cumulativeCode = useCumulativeCode(cell.id);
 
     useEffect(() => {
         if(!bundle) {
-            createBudle(cell.id, cumulativeCode);
+            createBundle(cell.id, cumulativeCode);
             return;
         }
 
         const timer = setTimeout(async () => {
-            createBudle(cell.id, cumulativeCode);
+            createBundle(cell.id, cumulativeCode);
         }, 750);
 
         return () => {
             clearTimeout(timer);
         }
 
-    }, [cumulativeCode, cell.id, createBudle]);
+    }, [cumulativeCode, cell.id, createBundle]);
 
     return (
     <Resizable direction="vertical">
