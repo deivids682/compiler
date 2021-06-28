@@ -1,7 +1,18 @@
 import { ActionType } from "../action-types";
 import { Cell } from "../cell";
+import { Action } from '../actions';
 
-const intialState: any = {
+
+interface CellsState {
+    loading: boolean;
+    error: string | null;
+    order: string[]
+    data: {
+        [key: string]: Cell
+    }
+}
+
+const intialState: CellsState = {
     loading: false,
     error: null,
     order: [],
@@ -9,7 +20,7 @@ const intialState: any = {
 }
 
 
-const reducers = (state: any = intialState, action: any) => {
+const reducers = (state: CellsState = intialState, action: Action) => {
 
     switch(action.type) {
          case ActionType.UPDATE_CELL: 

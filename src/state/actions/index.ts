@@ -1,4 +1,5 @@
 import {ActionType} from '../action-types'; 
+import { CellTypes } from '../cell';
 
 export interface UpdateCellAction {
     type: ActionType.UPDATE_CELL;
@@ -26,7 +27,16 @@ export interface BundleComplateAction {
     }
 }
 
+export interface InsertCellAfterAction {
+    type: ActionType.INSERT_CELL_AFTER;
+    payload: {
+        id: string | null,
+        type: CellTypes
+    }
+}
+
 export type Action = 
   UpdateCellAction    
 | BundleStartAction 
-| BundleComplateAction;
+| BundleComplateAction
+| InsertCellAfterAction;
