@@ -4,6 +4,11 @@ import { CellTypes } from '../cell';
 
 export type Direction = 'up' | 'down';
 
+export  interface DeleteCellAction {
+    type: ActionType.DELETE_CELL,
+    payload: string
+}
+
 
 export interface MoveCellAction {
     type: ActionType.MOVE_CELL;
@@ -51,4 +56,6 @@ export type Action =
   UpdateCellAction    
 | BundleStartAction 
 | BundleComplateAction
-| InsertCellAfterAction;
+| InsertCellAfterAction
+| MoveCellAction
+| DeleteCellAction;
